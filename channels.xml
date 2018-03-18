@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<list>
+    <region>
+        <name>GB</name>
+        <date>2018-02-28</date>
+        <startTime>20:00</startTime>
+        <endTime>21:00</endTime>
+        <channels>
+            <channel>ABC</channel>
+            <channel>Test</channel>
+        </channels>
+    </region>
+</list>
