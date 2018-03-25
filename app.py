@@ -37,6 +37,7 @@ def write_result_xml(responseData, xml_result_file):
 
 # parse_xml('./channels.xml')
 m = member.Member('US', '2018-03-13', '21:00', '22:00')
+
 with open('./channels.xml') as f:
     xml = f.read()
 root = etree.fromstring(xml)
@@ -58,7 +59,3 @@ r.set_time(m.get_start_time(), m.get_end_time())
 # s = r.get_infos_List("ABC")
 # print(s)
 write_result_xml(r.get_infos_List("ABC"), "result.xml")
-
-
-
-

@@ -4,7 +4,7 @@
 class Member:
     """class to save every region info"""
 
-    def __init__(self, region, date, start_time, end_time):
+    def __init__(self, region=None, date=None, start_time=None, end_time=None):
         self.__region = region
         self.__date = date
         self.__start_time = start_time
@@ -16,7 +16,19 @@ class Member:
 
     def add_channels(self, channels):
         self.__channels.extend(channels)
+
+    def set_region(self, region):
+        self.__region = region;
     
+    def set_date(self, date):
+        self.__date = date;
+
+    def set_time(self, startTime, endTime):
+        if startTime > endTime:
+            raise Exception("wrong time")
+        self.__start_time = startTime;
+        self.__end_time = endTime;
+
     def get_channels(self):
         return self.__channels
     
