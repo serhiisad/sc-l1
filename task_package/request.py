@@ -56,4 +56,5 @@ class Request:
         res = requests.get(req_url).json()
         for obj in res:
             if (obj['show']['network']['name']) == channel:
-                print(obj['show']['name'])
+                if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): 
+                    print(obj['show']['name'])

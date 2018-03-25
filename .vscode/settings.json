@@ -1,6 +1,6 @@
 {
     "python.linting.enabled": false,
-    "python.formatting.provider": "autopep8",
+    "python.formatting.provider": "yapf",
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
     "python.linting.prospectorEnabled": false,

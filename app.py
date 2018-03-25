@@ -15,7 +15,7 @@ def parse_xml(xml_file):
 
 
 # parse_xml('./channels.xml')
-m = member.Memeber('US', '2018-03-13', '21:00', '22:00')
+m = member.Memeber('US', '2018-03-13', '00:00', '01:00')
 with open('./channels.xml') as f:
     xml = f.read()
 root = etree.fromstring(xml)
@@ -29,4 +29,4 @@ r = request.Request();
 r.set_date(m.get_date())
 r.set_region(m.get_region())
 r.set_time(m.get_start_time(), m.get_end_time())
-r.get_infos('ABC')
+r.get_infos('CBS')
