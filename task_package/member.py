@@ -1,7 +1,7 @@
 """module"""
 
 
-class Memeber:
+class Member:
     """class to save every region info"""
 
     def __init__(self, region=None, date=None, start_time=None, end_time=None):
