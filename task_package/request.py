@@ -45,7 +45,7 @@ class Request:
     def get_end_time(self):
         return self.__end_time;
 
-    # ?
+
     def get_infos(self, channel):
         if self.__region == "":
             return print("no region set")
@@ -73,7 +73,7 @@ class Request:
         for obj in APIresponse:
             if (obj['show']['network']['name']) == channel:
                 if (obj['show']['type']) == "News":       # checking for reality shows, for example
-                  if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): #chec
+                  if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time):
                     output_response.append(obj['show']['name'])
 
         return output_response
