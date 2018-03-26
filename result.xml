@@ -1,2 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
-<result><items><item>Nightline</item><item>ABC World News Tonight with David Muir</item></items></result>
+<?xml version="1.0" ?>
+<result>
+	<items>
+		<сhannel name="ABC">
+			<tmp>Nightline</tmp>
+			<tmp>ABC World News Tonight with David Muir</tmp>
+		</сhannel>
+		<сhannel name="Test"/>
+	</items>
+</result>

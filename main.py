@@ -34,15 +34,21 @@ def write_result_xml(responseData, xml_result_file):
             pr.text = programm        
 
     et = ET.ElementTree(result)
+    et = minidom.parse(xml_result_file);
+    et = et.toprettyxml()
+    with open(xml_result_file, "w") as f:
+        f.write(et)
+    # print(et)
+    # print(ET.tostring(et, pretty_print=True))
     # xmlstr = minidom.parseString(ET.tostring(et)).toprettyxml(indent="\t")
-    et.write(xml_result_file, encoding="utf-8", xml_declaration=True, method="xml") # pretty_print=True не пахает тут (
-
+    # et.write(xml_result_file, encoding="utf-8", xml_declaration=True, method="xml") # pretty_print=True не пахает тут (
+    
 # parse_xml('./channels.xml')
 m = member.Member('US', '2018-03-13', '00:00', '22:00')
 
 with open('./channels.xml') as f:
     xml = f.read()
-    
+
 root = etree.fromstring(xml)
 for ch in root.getchildren():
     for f in ch.getchildren():
