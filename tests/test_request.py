@@ -25,4 +25,8 @@ class TestRequestMethods(unittest.TestCase):
     def test_exception(self):
         r = request.Request();
         self.assertRaises(Exception, r.set_time, "23:23", "22:22");
+
+    def test_infos(self):
+        r = request.Request("US", "2018-02-28", "00:00", "21:00");
+        self.assertEqual(r.get_infos_List("ABC"), ['Nightline', 'ABC World News Tonight with David Muir'])
         

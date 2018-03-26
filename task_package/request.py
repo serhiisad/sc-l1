@@ -46,19 +46,20 @@ class Request:
         return self.__end_time;
 
     # ?
-    def get_infos(self, channel):
-        if self.__region == "":
-            return print("no region set")
-        if self.__date == "":
-            return print("no data set")
-        if self.__start_time == "":
-            return print('no time set')
-        req_url = URL + '?country=' + self.__region + '&date=' + self.__date
-        response = requests.get(req_url).json()
-        for obj in response:
-            if (obj['show']['network']['name']) == channel:
-                if (obj['show']['type']) == "Reality":     # checking for reality shows, for example
-                        print(obj['show']['name'])
+    # def get_infos(self, channel):
+    #     if self.__region == "":
+    #         return print("no region set")
+    #     if self.__date == "":
+    #         return print("no data set")
+    #     if self.__start_time == "":
+    #         return print('no time set')
+    #     req_url = URL + '?country=' + self.__region + '&date=' + self.__date
+    #     print(req_url)
+    #     response = requests.get(req_url).json()
+    #     for obj in response:
+    #         if (obj['show']['network']['name']) == channel:
+    #             #if (obj['show']['type']) == "Reality":     # checking for reality shows, for example
+    #                     print(obj['show']['name'])
 
     def get_infos_List(self, channel):
         if self.__region == "":
@@ -68,13 +69,15 @@ class Request:
         if self.__start_time == "":
             print('no time set')
         req_url = URL + '?country=' + self.__region + '&date=' + self.__date
+        print (req_url)
         APIresponse = requests.get(req_url).json()
         output_response = []
         for obj in APIresponse:
-            if (obj['show']['network']['name']) == channel:
-                if (obj['show']['type']) == "News":       # checking for reality shows, for example
-                  if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): #chec
-                    output_response.append(obj['show']['name'])
+            if obj is not None:
+                if (obj['show']['network']['name']) == channel:
+                    if (obj['show']['type']) == "News":       # checking for reality shows, for example
+                        if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): #chec
+                            output_response.append(obj['show']['name'])
 
         return output_response
 
