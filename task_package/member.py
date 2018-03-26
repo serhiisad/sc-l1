@@ -18,20 +18,20 @@ class Member:
         self.__channels.extend(channels)
 
     def set_region(self, region):
-        self.__region = region;
-    
+        self.__region = region
+
     def set_date(self, date):
-        self.__date = date;
+        self.__date = date
 
     def set_time(self, startTime, endTime):
         if startTime > endTime:
             raise Exception("wrong time")
-        self.__start_time = startTime;
-        self.__end_time = endTime;
+        self.__start_time = startTime
+        self.__end_time = endTime
 
     def get_channels(self):
         return self.__channels
-    
+
     def get_date(self):
         return self.__date
 
