@@ -32,16 +32,11 @@ def write_result_xml(responseData, xml_result_file):
         for programm in elem[1]:
             pr = ET.SubElement(channel, 'tmp')
             pr.text = programm        
-
-    et = ET.ElementTree(result)
-    et = minidom.parse(xml_result_file);
-    et = et.toprettyxml()
+    et = ET.tostring(result, 'utf-8')
+    parsed = minidom.parseString(et)
+    pretty = parsed.toprettyxml(indent="\t")
     with open(xml_result_file, "w") as f:
-        f.write(et)
-    # print(et)
-    # print(ET.tostring(et, pretty_print=True))
-    # xmlstr = minidom.parseString(ET.tostring(et)).toprettyxml(indent="\t")
-    # et.write(xml_result_file, encoding="utf-8", xml_declaration=True, method="xml") # pretty_print=True не пахает тут (
+        f.write(pretty)
     
 # parse_xml('./channels.xml')
 m = member.Member('US', '2018-03-13', '00:00', '22:00')
