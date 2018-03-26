@@ -74,10 +74,13 @@ class Request:
         output_response = []
         for obj in APIresponse:
             if obj is not None:
-                if (obj['show']['network']['name']) == channel:
-                    if (obj['show']['type']) == "News":       # checking for reality shows, for example
-                        if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): #chec
-                            output_response.append(obj['show']['name'])
+                try:
+                    if (obj['show']['network']['name']) == channel:
+                        if (obj['show']['type']) == "News":       # checking for reality shows, for example
+                            if (obj['show']['schedule']['time'] > self.__start_time) and (obj['show']['schedule']['time'] < self.__end_time): #chec
+                                output_response.append(obj['show']['name'])
+                except(TypeError):
+                    print("Type err");
 
         return output_response
 
